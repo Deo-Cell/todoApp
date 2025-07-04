@@ -1,0 +1,56 @@
+version: '3.7'
+
+services:
+  # Development services
+  postgres:
+    image: postgres:16.3
+    ports:
+      - '8090:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: todoapp2
+      POSTGRES_PASSWORD: "pnKzA06jtYbJt18k3tVVr1r3fjuzvFxe"
+    volumes:
+      - todoapp2_data:/var/lib/postgresql/data
+    profiles:
+      - '' # Default profile
+      - dev
+  redis:
+    image: redis:6.2.6
+    ports:
+      - '8091:6379'
+    command: redis-server --requirepass "-VUyX7VWiC9Qir8YbS0Nyl5VGidXN1wb"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+    profiles:
+      - '' # Default profile
+      - dev
+
+  # Test services
+  postgres_test:
+    image: postgres:16.3
+    ports:
+      - '9090:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: todoapp2_test
+      POSTGRES_PASSWORD: "sEdvomoh6lYPLDR64fsJjFUbNktS9Cl_"
+    volumes:
+      - todoapp2_test_data:/var/lib/postgresql/data
+    profiles:
+      - '' # Default profile
+      - test
+  redis_test:
+    image: redis:6.2.6
+    ports:
+      - '9091:6379'
+    command: redis-server --requirepass "deSS5oXLF3cuA7zoW2Je92a0Nu1xvLSW"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+    profiles:
+      - '' # Default profile
+      - test
+
+volumes:
+  todoapp2_data:
+  todoapp2_test_data:

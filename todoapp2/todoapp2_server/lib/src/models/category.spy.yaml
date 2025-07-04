@@ -1,0 +1,6 @@
+class: Category
+table: category
+fields:
+  name: String
+  color: String,
+  userId: int, relation(parent=serverpod_user_info)

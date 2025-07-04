@@ -1,0 +1,5 @@
+class: Response
+table: response
+fields:
+  success: bool
+  message: String

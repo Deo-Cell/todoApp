@@ -1,0 +1,11 @@
+class: Task
+table: task
+fields:
+  title: String
+  description: String
+  isCompleted: bool
+  createdAt: DateTime?
+  categoryId: int?
+  deadline: DateTime
+  reminder: DateTime?
+  userId: int, relation(parent=serverpod_user_info)

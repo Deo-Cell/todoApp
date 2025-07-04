@@ -1,0 +1,19 @@
+category:
+  - getCategories:
+  - getCategoryById:
+  - addCategory:
+  - deleteCategoryById:
+example:
+  - hello:
+task:
+  - getTasks:
+  - getTasksCompleted:
+  - getTasksPended:
+  - getMorningTasks:
+  - getEveningTasks:
+  - getNoonTasks:
+  - addTask:
+  - getTaskById:
+  - getTasksByCategory:
+  - updateTask:
+  - deleteTask:
